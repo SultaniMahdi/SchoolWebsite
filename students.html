@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Students Page</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <h1>Our Students</h1>
+
+    <nav>
+        <a href="index.html">Home</a> |
+        <a href="about.html">About Us</a> |
+        <a href="contact.html">Contact Us</a>
+    </nav>
+
+    <p>Click the button below to load student data from the C# backend API:</p>
+
+    <!-- HTML Elements to display the list and button -->
+    <ul id="studentsList"></ul>
+    <button onclick="loadStudents()">Load Students</button>
+
+    <!-- JavaScript to fetch and display the data -->
+    <script>
+    async function loadStudents() {
+        // 1. Fetch data from the new API endpoint
+        const res = await fetch('/api/students');
+        const data = await res.json(); // data is now a JavaScript array
+
+        let output = "";
+        
+        // 2. Loop through the array and build HTML list items
+        data.forEach(s => {
+            output += `<li>${s.name} &mdash; Grade: **${s.grade}** (ID: ${s.id})</li>`;
+        });
+
+        // 3. Insert the generated HTML into the <ul> element
+        document.getElementById("studentsList").innerHTML = output;
+    }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Us</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+    <h1>About Our School</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="students.html">Students</a>
+</nav>
+
+<div class="container">
+    <h2>About Our School</h2>
+
+    <button onclick="loadAbout()">Load About Info</button>
+    <p id="output"></p>
+</div>
+
+<script>
+async function loadAbout() {
+    const res = await fetch('/api/about');
+    const data = await res.json();
+    document.getElementById('output').innerText =
+        data.title + " - " + data.message;
+}
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Website</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+    <h1>Welcome to Taqchin High School!</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="about.html">About Us</a>
+    <a href="contact.html">Contact</a>
+    <a href="income-expense.html">Income & Expense</a>
+    <a href="students.html">Students</a>
+</nav>
+
+<div class="container">
+    <h2>School Overview</h2>
+
+    <p>Taqchin Co-educational High School was initially built in 1995 with the cooperation of the local community and with limited facilities. However, in 2025, with the help and support of expatriates from around the world, the school is being fundamentally and properly reconstructed using bricks and iron.  </p>
+
+    <!-- Your image added here -->
+    <img src="images/school.jpeg" style="width:100%; border-radius:10px; margin:20px 0;">
+
+    <button onclick="loadMessage()">Get Backend Message</button>
+    <p id="output"></p>
+</div>
+
+<script>
+async function loadMessage() {
+    const res = await fetch('/api/hello');
+    const data = await res.json();
+    document.getElementById('output').innerText = data.message;
+}
+</script>
+
+</body>
+</html>
+
