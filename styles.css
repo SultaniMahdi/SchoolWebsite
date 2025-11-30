@@ -48,6 +48,79 @@ button {
     border-radius: 8px;
     cursor: pointer;
 }
+/* ---------------------------
+   IMAGE GALLERY STYLING
+---------------------------- */
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+.gallery img {
+    width: 400px;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+/* ---------------------------
+   VIDEO STYLING
+---------------------------- */
+video {
+    width: 100%;
+    max-width: 900px;   /* bigger video */
+    height: auto;
+    border-radius: 12px;
+    margin-top: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.contact-card {
+    background: #ffffff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
+}
+
+.contact-card h3 {
+    margin: 0;
+}
+
+.contact-card p {
+    color: #1e88e5;
+    font-weight: bold;
+}
+
+.contact-card a {
+    color: #1565c0;
+    text-decoration: none;
+}
+
+.contact-card a:hover {
+    text-decoration: underline;
+}
+
+.container {
+    padding-bottom: 100px;  /* makes page longer */
+}
+
+.spacer {
+    height: 500px;   /* forces page to extend down like a second page */
+}
 
 button:hover {
     background: #1565c0;

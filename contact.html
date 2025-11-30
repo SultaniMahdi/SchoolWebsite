@@ -1,35 +1,68 @@
-<form id="contactForm">
-  <label>Name</label>
-  <input type="text" name="name" required>
+<h2>Contact Our Staff</h2>
 
-  <label>Email</label>
-  <input type="email" name="email" required>
+<div class="contact-grid">
 
-  <label>Message</label>
-  <textarea name="message" required></textarea>
+    <div class="contact-card">
+        <h3>Mohammad Ali Ahmadi</h3>
+        <p>Head</p>
+        <a href="tel:+93770079609">+93 770079609</a>
+    </div>
 
-  <button type="submit">Send Message</button>
-</form>
+    <div class="contact-card">
+        <h3>Esa Haidari</h3>
+        <p>Project Engineer</p>
+        <a href="tel:+93747704665">+93 747704665</a>
+    </div>
 
-<p id="result"></p>
+    <div class="contact-card">
+        <h3>Eid Mohammad Mehtari</h3>
+        <p>Reporter</p>
+        <a href="tel:+93790483387">+93 790483387</a>
+    </div>
 
-<script>
-document.getElementById("contactForm").addEventListener("submit", async function(e) {
-  e.preventDefault();
+    <div class="contact-card">
+        <h3>Rahmani</h3>
+        <p>Finance Manager</p>
+        <a href="tel:+93767756366">+93 767756366</a>
+    </div>
 
-  const formData = {
-    name: this.name.value,
-    email: this.email.value,
-    message: this.message.value
-  };
+    <div class="contact-card">
+        <h3>Murtaza Ahmadi</h3>
+        <p>Finance Manager</p>
+        <a href="tel:+93793561454">+93 793561454</a>
+    </div>
 
-  const res = await fetch("/api/contact", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(formData)
-  });
+    <!-- ⭐ Added MORE People Below ⭐ -->
 
-  const data = await res.json();
-  document.getElementById("result").innerText = data.message;
-});
-</script>
+    <div class="contact-card">
+        <h3>Najibullah Yusufi</h3>
+        <p>HR Manager</p>
+        <a href="tel:+93744514868">+93 744514868</a>
+    </div>
+
+    <div class="contact-card">
+        <h3>Hamidullah Rahimi</h3>
+        <p>IT Support</p>
+        <a href="tel:+93700000007">+93 700 000 007</a>
+    </div>
+
+    <div class="contact-card">
+        <h3>Hussain Rahimi</h3>
+        <p>Teacher</p>
+        <a href="tel:+93745138943">+93 745138943</a>
+    </div>
+
+    <div class="contact-card">
+        <h3>Jawad Hashimi</h3>
+        <p>Security Officer</p>
+        <a href="tel:+93700000009">+93 700 000 009</a>
+    </div>
+
+    <div class="contact-card">
+        <h3>X</h3>
+        <p>Principle of School</p>
+        <a href="tel:+93700000010">+93 700 000 010</a>
+    </div>
+
+</div>
+
