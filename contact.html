@@ -1,68 +1,166 @@
-<h2>Contact Our Staff</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="styles.css">
 
-<div class="contact-grid">
+    <style>
+        h2 {
+            text-align: center;
+            margin-top: 40px;
+        }
 
+        .committee-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .committee-btn {
+            padding: 12px 25px;
+            margin: 10px;
+            background-color: #004aad;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .committee-btn:hover {
+            background-color: #00357a;
+        }
+
+        .committee-box {
+            display: none;
+            margin: 30px auto;
+            max-width: 800px;
+        }
+
+        .contact-card {
+            background: white;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+            text-align: left;
+        }
+
+        .contact-card h3 {
+            margin-bottom: 5px;
+        }
+
+        .contact-card a {
+            color: #004aad;
+            font-weight: bold;
+        }
+    </style>
+
+    <script>
+        function openCommittee(id) {
+            document.querySelectorAll(".committee-box").forEach(box => {
+                box.style.display = "none";
+            });
+
+            document.getElementById(id).style.display = "block";
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Contact Our Committees</h2>
+
+<div class="committee-container">
+    <button class="committee-btn" onclick="openCommittee('governance')">
+         Governance Committee
+    </button>
+
+    <button class="committee-btn" onclick="openCommittee('pr')">
+         Public Relations Committee
+    </button>
+
+    <button class="committee-btn" onclick="openCommittee('engineering')">
+         Engineering Committe
+    </button>
+
+    <button class="committee-btn" onclick="openCommittee('finance')">
+        Finance Committee
+    </button>
+</div>
+
+<!-- ========== GOVERNANCE COMMITTEE ========== -->
+<div id="governance" class="committee-box">
     <div class="contact-card">
-        <h3>Mohammad Ali Ahmadi</h3>
+        <h3>Liaqat Saleh</h3>
         <p>Head</p>
-        <a href="tel:+93770079609">+93 770079609</a>
+        <a href="tel:+93792683455">+93 792 683 455</a>
     </div>
-
     <div class="contact-card">
-        <h3>Esa Haidari</h3>
-        <p>Project Engineer</p>
-        <a href="tel:+93747704665">+93 747704665</a>
+        <h3>Ali Madad Rezayee</h3>
+        <p>Head</p>
+        <a href="tel:+93780803737">+93 780 803 737</a>
     </div>
+</div>
 
+<!-- ========== PUBLIC RELATIONS COMMITTEE ========== -->
+<div id="pr" class="committee-box">
     <div class="contact-card">
         <h3>Eid Mohammad Mehtari</h3>
         <p>Reporter</p>
-        <a href="tel:+93790483387">+93 790483387</a>
+        <a href="tel:+93790483387">+93 790 483 387</a>
     </div>
+    <div class="contact-card">
+      <h3>Hussain Rahimi</h3>
+      <p>Reporter</p>
+      <a href="tel:+93745138943">+93 745 138 943</a>
+    </div>
+</div>
+
+<!-- ========== ENGINEERING COMMITTEE ========== -->
+<div id="engineering" class="committee-box">
+     <div class="contact-card">
+        <h3>Mohammad Ali Ahmadi</h3>
+        <p>Project Engineer</p>
+        <a href="tel:+93770079609">+93 770 079 609</a>
+    </div>
+    <div class="contact-card">
+        <h3>Esa Haidari</h3>
+        <p>Project Engineer</p>
+        <a href="tel:+93747704665">+93 747 704 665</a>
+    </div>
+</div>
+
+<!-- ========== FINANCE COMMITTEE (NEW) ========== -->
+<div id="finance" class="committee-box">
 
     <div class="contact-card">
-        <h3>Rahmani</h3>
+        <h3>Assadullah Rahmani</h3>
         <p>Finance Manager</p>
-        <a href="tel:+93767756366">+93 767756366</a>
+        <a href="tel:+93767756366">+93 767 756 366</a>
     </div>
+
 
     <div class="contact-card">
         <h3>Murtaza Ahmadi</h3>
-        <p>Finance Manager</p>
-        <a href="tel:+93793561454">+93 793561454</a>
+        <p>Budget Analyst</p>
+        <a href="tel:+93799123045">+93 799 123 045</a>
     </div>
-
-    <!-- ⭐ Added MORE People Below ⭐ -->
 
     <div class="contact-card">
         <h3>Najibullah Yusufi</h3>
-        <p>HR Manager</p>
-        <a href="tel:+93744514868">+93 744514868</a>
+        <p>Financial Auditor</p>
+        <a href="tel:+93744514868">+93 744 514 868</a>
     </div>
-
-    <div class="contact-card">
-        <h3>Hamidullah Rahimi</h3>
-        <p>IT Support</p>
-        <a href="tel:+93700000007">+93 700 000 007</a>
-    </div>
-
-    <div class="contact-card">
-        <h3>Hussain Rahimi</h3>
-        <p>Teacher</p>
-        <a href="tel:+93745138943">+93 745138943</a>
-    </div>
-
-    <div class="contact-card">
-        <h3>Jawad Hashimi</h3>
-        <p>Security Officer</p>
-        <a href="tel:+93700000009">+93 700 000 009</a>
-    </div>
-
-    <div class="contact-card">
-        <h3>X</h3>
-        <p>Principle of School</p>
-        <a href="tel:+93700000010">+93 700 000 010</a>
+   <div class="contact-card">
+        <h3>Zia Rasikh</h3>
+        <p>Financial Auditor</p>
+        <a href="tel:+93796466041">+93 796 466 041</a>
     </div>
 
 </div>
+
+</body>
+</html>
 
