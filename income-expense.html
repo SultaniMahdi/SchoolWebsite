@@ -1,28 +1,209 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Income & Expense Files</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income & Expense</title>
+
+    <!-- Flag Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icons/6.7.0/css/flag-icons.min.css">
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, #e3f2fd, #bbdefb);
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        header {
+          background: #1e88e5;
+          color: white;
+          padding: 20px;
+          text-align: center;
+          box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+        nav {
+           background: #1565c0;
+           padding: 10px;
+           text-align: center;
+}
+
+        nav a { color: white; text-decoration: none; font-size: 18px; }
+        .container { padding: 20px; }
+        .section-btn {
+            background: #003366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .hidden { display: none; }
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .country-item {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            text-align: center;
+            cursor: pointer;
+        }
+        .upload-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8e8e8;
+            border-radius: 6px;
+        }
+        .flag-icon {
+            font-size: 26px;
+            margin-bottom: 6px;
+        }
+    </style>
 </head>
 <body>
 
+<header>
+    <h1>Income & Expense Management</h1>
+</header>
+
 <nav>
     <a href="index.html">Home</a>
-    <a href="about.html">About</a>
-    <a href="students.html">Students</a>
-    <a href="contact.html">Contact</a>
     <a href="income-expense.html">Income & Expense</a>
+    <a href="students.html">Students</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
 </nav>
 
-<h1>Income & Expense Documents</h1>
-<p>Click on a file to view or download:</p>
+<div class="container">
+    <button class="section-btn" onclick="toggleSection('incomeOptions')">Income</button>
+    <button class="section-btn" onclick="toggleSection('expenseOptions')">Expense</button>
 
-<ul>
-    <li><a href="files/income-expense/2025-report1.pdf" target="_blank">2025 First Report</a></li>
-    <li><a href="files/income-expense/2025-report2.pdf" target="_blank">2025 Second Report</a></li>
-    <li><a href="files/income-expense/2025-report3.pdf" target="_blank">2025 Third Report</a></li>
-    <li><a href="files/income-expense/2025-report4.pdf" target="_blank">2025 Fourth Report</a></li>
-</ul>
+    <!-- Income Options -->
+    <div id="incomeOptions" class="hidden">
+        <h2>Select Region</h2>
+        <button class="section-btn" onclick="showCountries('asia')">Asia</button>
+        <button class="section-btn" onclick="showCountries('europa')">Europa</button>
+        <button class="section-btn" onclick="showCountries('australia')">Australia</button>
+        <button class="section-btn" onclick="showCountries('america')">America & Canada</button>
+
+        <div id="countryList" class="country-grid hidden"></div>
+
+        <div id="incomeUpload" class="upload-box hidden">
+            <h3>Upload Income PDF</h3>
+            <input type="file" accept="application/pdf" />
+        </div>
+    </div>
+
+    <!-- Expense Options -->
+    <div id="expenseOptions" class="hidden">
+        <h2>Expense Section</h2>
+        <button class="section-btn" onclick="showExpenseUpload()">Contract</button>
+        <button class="section-btn" onclick="showReportList()">Report</button>
+
+        <div id="reportList" class="upload-box hidden"></div>
+
+        <div id="expenseUpload" class="upload-box hidden">
+            <h3>Upload Expense PDF</h3>
+            <input type="file" accept="application/pdf" />
+        </div>
+    </div>
+</div>
+
+<script>
+/* --- COUNTRY CODE MAPPING FOR FLAGS --- */
+const countryCodes = {
+    Afghanistan: "af", India: "in", Pakistan: "pk", China: "cn", Japan: "jp",
+    Albania: "al", Andorra: "ad", Armenia: "am", Austria: "at", Azerbaijan: "az",
+    Belarus: "by", Belgium: "be", "Bosnia and Herzegovina": "ba", Bulgaria: "bg",
+    Croatia: "hr", Cyprus: "cy", "Czech Republic": "cz", Denmark: "dk", Estonia: "ee",
+    Finland: "fi", France: "fr", Georgia: "ge", Germany: "de", Greece: "gr",
+    Hungary: "hu", Iceland: "is", Ireland: "ie", Italy: "it", Kazakhstan: "kz",
+    Kosovo: "xk", Latvia: "lv", Liechtenstein: "li", Lithuania: "lt", Luxembourg: "lu",
+    Malta: "mt", Moldova: "md", Monaco: "mc", Montenegro: "me", Netherlands: "nl",
+    "North Macedonia": "mk", Norway: "no", Poland: "pl", Portugal: "pt", Romania: "ro",
+    Russia: "ru", "San Marino": "sm", Serbia: "rs", Slovakia: "sk", Slovenia: "si",
+    Spain: "es", Sweden: "se", Switzerland: "ch", Turkey: "tr", Ukraine: "ua",
+    "United Kingdom": "gb", "Vatican City": "va",
+    Australia: "au", "New Zealand": "nz",
+    USA: "us", Canada: "ca", Mexico: "mx"
+};
+
+function toggleSection(sectionId) {
+    document.getElementById('incomeOptions').classList.add('hidden');
+    document.getElementById('expenseOptions').classList.add('hidden');
+    document.getElementById(sectionId).classList.remove('hidden');
+}
+
+function showCountries(region) {
+    const regions = {
+        asia: ['Afghanistan', 'India', 'Pakistan', 'China', 'Japan'],
+        europa: ['Albania','Andorra','Armenia','Austria','Azerbaijan','Belarus','Belgium',
+                 'Bosnia and Herzegovina','Bulgaria','Croatia','Cyprus','Czech Republic','Denmark',
+                 'Estonia','Finland','France','Georgia','Germany','Greece','Hungary','Iceland',
+                 'Ireland','Italy','Kazakhstan','Kosovo','Latvia','Liechtenstein','Lithuania',
+                 'Luxembourg','Malta','Moldova','Monaco','Montenegro','Netherlands','North Macedonia',
+                 'Norway','Poland','Portugal','Romania','Russia','San Marino','Serbia','Slovakia',
+                 'Slovenia','Spain','Sweden','Switzerland','Turkey','Ukraine','United Kingdom',
+                 'Vatican City'],
+        australia: ['Australia', 'New Zealand'],
+        america: ['USA', 'Canada', 'Mexico']
+    };
+
+    const grid = document.getElementById('countryList');
+    grid.innerHTML = '';
+
+    regions[region].forEach(c => {
+        let div = document.createElement('div');
+        div.className = 'country-item';
+        let code = countryCodes[c];
+        div.innerHTML = `<span class="fi fi-${code} flag-icon"></span><br> ${c}`;
+        
+        // Open PDF on click
+        div.onclick = () => {
+            const pdfFile = `pdfs/${c.replace(/ /g,'_')}.pdf`;
+            window.open(pdfFile, "_blank");
+        };
+
+        grid.appendChild(div);
+    });
+
+    grid.classList.remove('hidden');
+    document.getElementById('incomeUpload').classList.remove('hidden');
+}
+
+// ======================= Expense System =======================
+function showExpenseUpload() {
+    document.getElementById('expenseUpload').classList.remove('hidden');
+    document.getElementById('reportList').classList.add('hidden');
+}
+
+function showReportList() {
+    const reportDiv = document.getElementById('reportList');
+    reportDiv.innerHTML = "";
+    reportDiv.classList.remove('hidden');
+    document.getElementById('expenseUpload').classList.add('hidden');
+
+    for (let i = 1; i <= 15; i++) {
+        let btn = document.createElement("button");
+        btn.className = "section-btn";
+        btn.style.display = "block";
+        btn.style.marginBottom = "10px";
+        btn.textContent = `Report ${i}`;
+        btn.onclick = function () {
+            const pdfFile = `pdfs/Report${i}.pdf`;
+            window.open(pdfFile, "_blank");
+        };
+        reportDiv.appendChild(btn);
+    }
+}
+</script>
 
 </body>
 </html>

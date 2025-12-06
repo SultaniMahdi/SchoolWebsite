@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Income & Expense</title>
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background: #003366;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #00509e;
+            padding: 10px;
+            display: flex;
+            gap: 20px;
+        }
+        nav a { color: white; text-decoration: none; font-size: 18px; }
+        .container { padding: 20px; }
+        .section-btn {
+            background: #003366;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 8px;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 18px;
+        }
+        .hidden { display: none; }
+        .country-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .country-item {
+            background: white;
+            padding: 10px;
+            border-radius: 6px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.2);
+            text-align: center;
+        }
+        .upload-box {
+            margin-top: 20px;
+            padding: 15px;
+            background: #e8e8e8;
+            border-radius: 6px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Income & Expense Management</h1>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="income-expense.html">Income & Expense</a>
+    <a href="students.html">Students</a>
+    <a href="videos.html">Videos</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+</nav>
+
+<div class="container">
+    <button class="section-btn" onclick="toggleSection('incomeOptions')">Income</button>
+    <button class="section-btn" onclick="toggleSection('expenseOptions')">Expense</button>
+
+    <!-- Income Options -->
+    <div id="incomeOptions" class="hidden">
+        <h2>Select Region</h2>
+        <button class="section-btn" onclick="showCountries('asia')">Asia</button>
+        <button class="section-btn" onclick="showCountries('europa')">Europa</button>
+        <button class="section-btn" onclick="showCountries('australia')">Australia</button>
+        <button class="section-btn" onclick="showCountries('america')">America & Canada</button>
+
+        <div id="countryList" class="country-grid hidden"></div>
+
+        <div id="incomeUpload" class="upload-box hidden">
+            <h3>Upload Income PDF</h3>
+            <input type="file" accept="application/pdf" />
+        </div>
+    </div>
+
+    <!-- Expense Options (REPLACED WITH NEW CODE) -->
+    <div id="expenseOptions" class="hidden">
+        <h2>Expense Section</h2>
+
+        <button class="section-btn" onclick="showContract()">Contract</button>
+        <button class="section-btn" onclick="showReportList()">Report</button>
+
+        <div id="reportList" class="upload-box hidden"></div>
+
+        <div id="expenseUpload" class="upload-box hidden">
+            <h3>Upload Expense PDF</h3>
+            <input type="file" accept="application/pdf" />
+        </div>
+    </div>
+</div>
+
+<script>
+    function toggleSection(sectionId) {
+        document.getElementById('incomeOptions').classList.add('hidden');
+        document.getElementById('expenseOptions').classList.add('hidden');
+        document.getElementById(sectionId).classList.remove('hidden');
+    }
+
+    /* ==========================
+       EXPENSE NEW FUNCTIONS
+       ========================== */
+
+   <!-- Expense Options -->
+<div id="expenseOptions" class="hidden">
+    <h2>Expense Section</h2>
+
+    <button class="section-btn" onclick="showExpenseUpload()">Contract</button>
+    <button class="section-btn" onclick="showReportList()">Report</button>
+
+    <div id="reportList" class="upload-box hidden"></div>
+
+    <div id="expenseUpload" class="upload-box hidden">
+        <h3>Upload Expense PDF</h3>
+        <input type="file" accept="application/pdf" />
+    </div>
+</div>
+
+<script>
+    function showExpenseUpload() {
+        document.getElementById('expenseUpload').classList.remove('hidden');
+        document.getElementById('reportList').classList.add('hidden');
+    }
+
+    function showReportList() {
+        const reportDiv = document.getElementById('reportList');
+        reportDiv.innerHTML = "";
+        reportDiv.classList.remove('hidden');
+        document.getElementById('expenseUpload').classList.add('hidden');
+
+        for (let i = 1; i <= 15; i++) {
+            let btn = document.createElement("button");
+            btn.className = "section-btn";
+            btn.style.display = "block";
+            btn.style.marginBottom = "10px";
+            btn.textContent = `Report ${i}`;
+
+            btn.onclick = function () {
+                const pdfFile = `pdfs/Report${i}.pdf`;
+                window.open(pdfFile, "_blank");
+            };
+
+            reportDiv.appendChild(btn);
+        }
+    }
+</script>
+
+
+</body>
+</html>
+
+     
