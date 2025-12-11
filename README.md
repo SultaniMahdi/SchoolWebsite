@@ -44,7 +44,7 @@ The backend currently runs **locally** using ASP.NET Core.
 - Responsive design for mobile and desktop  
 - Clean and user-friendly UI  
 
-### ✔ **Backend Features (ASP.NET Core)**
+### ✔ **Backend Features (ASP.NET Core)**(The code is not evailable in Github, It is running locally, in case of complete Backend i will add to Github)
 - RESTful API for:
   - Students  
   - Teachers  
