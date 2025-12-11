@@ -1,63 +1,308 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>School Website</title>
-    <link rel="stylesheet" href="styles.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taqchin High School</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto+Slab:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-
-<header>
-    <h1>Welcome to Taqchin High School!</h1>
-</header>
-
-<nav>
-    <a href="index.html">Home</a>
-    <a href="about.html">About Us</a>
-    <a href="contact.html">Contact</a>
-    <a href="income-expense.html">Income & Expense</a>
-    <a href="students.html">Students</a>
-</nav>
-
-<div class="container">
-    <h2>School Overview</h2>
-
-    <p>
-        Taqchin Co-educational High School was initially built in 1995 with the cooperation
-        of the local community and with limited facilities. However, in 2025, with the help 
-        and support of the community...
-    </p>
-
-    <!-- Main full-width image -->
-    <!-- 🔥 Image Gallery Section -->
-    <h3>School Photo Gallery</h3>
-    <div class="gallery">
-        <img src="images/photo1.jpg" alt="Photo 1">
-        <img src="images/photo2.jpg" alt="Photo 2">
-        <img src="images/photo3.jpg" alt="Photo 3">
-        <img src="images/photo4.jpg" alt="Photo 4">
-        <img src="images/photo5.jpg" alt="Photo 5">
-        <img src="images/photo6.jpg" alt="Photo 6">
+    <!-- Announcement Bar -->
+    <div class="announcement-bar">
+        <div class="container">
+            <span><i class="fas fa-bullhorn"></i> Admissions Open for 2025-26 Academic Year</span>
+            <span><i class="fas fa-phone"></i> Call us: +93-XXX-XXXXXX</span>
+        </div>
     </div>
 
-    <!-- 🔥 Video Section -->
-    <h3>School Introduction Video</h3>
-    <video controls width="600">
-        <source src="videos/school-video.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
+    <!-- Main Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo-section">
+                <div class="logo">
+                    <i class="fas fa-graduation-cap"></i>
+                    <div class="logo-text">
+                        <h1>Taqchin High School</h1>
+                        <p>Excellence in Education Since 1995</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="header-info">
+                <div class="info-item">
+                    <i class="fas fa-clock"></i>
+                    <div>
+                        <p>School Hours</p>
+                        <span>7:30 AM - 4:30 PM</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <div>
+                        <p>Our Location</p>
+                        <span>Taqchin, Qarabagh, Gahazni, Afghanistan</span>
+                    </div>
+                </div>
+                <div class="info-item">
+                    <i class="fas fa-envelope"></i>
+                    <div>
+                        <p>Email Us</p>
+                        <span>info@taqchinhs.edu.af</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
-    <br><br>
-    <button onclick="loadMessage()">Get Backend Message</button>
-    <p id="output"></p>
-</div>
-   
-<script>
-async function loadMessage() {
-    const res = await fetch('/api/hello');
-    const data = await res.json();
-    document.getElementById('output').innerText = data.message;
-}
-</script>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="active">
+                <i class="fas fa-home"></i> Home
+            </a>
+            <a href="about.html">
+                <i class="fas fa-info-circle"></i> About Us
+            </a>
+            <a href="contact.html">
+                <i class="fas fa-address-book"></i> Contact
+            </a>
+            <a href="income-expense.html">
+                <i class="fas fa-chart-line"></i> Income & Expense
+            </a>
+            <a href="students.html">
+                <i class="fas fa-user-graduate"></i> Students
+            </a>
+            <a href="gallery.html">
+                <i class="fas fa-images"></i> Gallery
+            </a>
+            <a href="news.html">
+                <i class="fas fa-newspaper"></i> News & Events
+            </a>
+        </div>
+    </nav>
 
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Shaping Future Leaders Through Quality Education</h2>
+            <p>Providing holistic education with modern facilities and dedicated faculty</p>
+            <a href="about.html" class="hero-btn">Learn More About Us <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Quick Stats -->
+        <div class="quick-stats">
+            <div class="stat-card">
+                <i class="fas fa-users"></i>
+                <h3>1,200+</h3>
+                <p>Students Enrolled</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-chalkboard-teacher"></i>
+                <h3>45+</h3>
+                <p>Qualified Teachers</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-school"></i>
+                <h3>26+</h3>
+                <p>Years of Excellence</p>
+            </div>
+            <div class="stat-card">
+                <i class="fas fa-trophy"></i>
+                <h3>150+</h3>
+                <p>Awards & Achievements</p>
+            </div>
+        </div>
+
+        <h2 class="section-title">School Overview</h2>
+        <div class="overview-content">
+            <div class="overview-text">
+                <p>
+                    Taqchin Co-educational High School was initially built in 1995 with the cooperation
+                    of the local community and with limited facilities. However, in 2025, with the help 
+                    and support of the community and government initiatives, we have transformed into 
+                    a modern educational institution equipped with state-of-the-art facilities.
+                </p>
+                <p>
+                    Our school provides quality education from grades 1-12, focusing on academic excellence,
+                    character building, and holistic development of each student.
+                </p>
+            </div>
+            <div class="overview-image">
+                <img src="images/photo1.jpg" alt="Taqchin High School Building">
+            </div>
+        </div>
+
+        <!-- Image Gallery Section -->
+        <h2 class="section-title">School Photo Gallery</h2>
+        <div class="gallery-intro">
+            <p>Take a virtual tour of our campus, classrooms, and facilities</p>
+        </div>
+        <div class="gallery">
+            <div class="gallery-item">
+                <img src="images/photo1.jpg" alt="School Building">
+                <div class="gallery-caption">Main Building</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo2.jpg" alt="Classroom">
+                <div class="gallery-caption">Smart Classroom</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo3.jpg" alt="Library">
+                <div class="gallery-caption">Library</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo4.jpg" alt="Science Lab">
+                <div class="gallery-caption">Science Laboratory</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo5.jpg" alt="Sports">
+                <div class="gallery-caption">Sports Ground</div>
+            </div>
+            <div class="gallery-item">
+                <img src="images/photo6.jpg" alt="Students">
+                <div class="gallery-caption">Student Activities</div>
+            </div>
+        </div>
+
+        <!-- Video Section -->
+        <h2 class="section-title">School Introduction Video</h2>
+        <div class="video-container">
+            <div class="video-wrapper">
+                <video controls poster="images/video-thumbnail.jpg">
+                    <source src="videos/school-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-info">
+                    <h3><i class="fas fa-play-circle"></i> Welcome to Taqchin High School</h3>
+                    <p>Watch our 3-minute introduction video to learn more about our vision, mission, and campus life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA Section -->
+        <div class="cta-section">
+            <h2>Interested in Enrolling Your Child?</h2>
+            <p>Join our community of learners and achievers. Admissions for 2025-26 are now open.</p>
+            <div class="cta-buttons">
+                <button onclick="location.href='admissions.html'" class="cta-btn primary">
+                    <i class="fas fa-file-alt"></i> Apply Now
+                </button>
+                <button onclick="loadMessage()" class="cta-btn secondary">
+                    <i class="fas fa-comments"></i> Get Backend Message
+                </button>
+                <button onclick="location.href='contact.html'" class="cta-btn outline">
+                    <i class="fas fa-calendar-alt"></i> Schedule Visit
+                </button>
+            </div>
+            <p id="output" class="output-message"></p>
+        </div>
+
+        <!-- News & Updates -->
+        <div class="news-section">
+            <h2 class="section-title">Latest News & Updates</h2>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-date">April 15, 2025</div>
+                    <h3>Annual Sports Day 2025</h3>
+                    <p>Our annual sports competition will be held on April 30th. All parents are invited.</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">April 10, 2025</div>
+                    <h3>New Computer Lab Inauguration</h3>
+                    <p>We have inaugurated a new computer lab with 30 latest computers for students.</p>
+                </div>
+                <div class="news-card">
+                    <div class="news-date">April 5, 2025</div>
+                    <h3>Parent-Teacher Meeting</h3>
+                    <p>Quarterly parent-teacher meeting scheduled for April 20th, 2025.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3><i class="fas fa-graduation-cap"></i> Taqchin High School</h3>
+                <p>Providing quality education since 1995. Committed to academic excellence and holistic development.</p>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Home</a></li>
+                    <li><a href="about.html"><i class="fas fa-chevron-right"></i> About Us</a></li>
+                    <li><a href="admissions.html"><i class="fas fa-chevron-right"></i> Admissions</a></li>
+                    <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Contact Info</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Taqchin, Afghanistan</p>
+                <p><i class="fas fa-phone"></i> +93-XXX-XXXXXX</p>
+                <p><i class="fas fa-envelope"></i> info@taqchinhs.edu.af</p>
+                <p><i class="fas fa-clock"></i> Mon-Fri: 7:30 AM - 4:00 PM</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Taqchin High School — All Rights Reserved</p>
+            <p>Designed with <i class="fas fa-heart"></i> for Education</p>
+        </div>
+    </footer>
+
+    <script>
+    async function loadMessage() {
+        try {
+            const res = await fetch('/api/hello');
+            const data = await res.json();
+            const output = document.getElementById('output');
+            output.innerHTML = `<strong>Server Message:</strong> ${data.message}`;
+            output.style.color = '#1e88e5';
+        } catch (error) {
+            document.getElementById('output').innerText = 'Error connecting to server';
+            document.getElementById('output').style.color = 'red';
+        }
+    }
+
+    // Gallery lightbox effect
+    document.addEventListener('DOMContentLoaded', function() {
+        const galleryItems = document.querySelectorAll('.gallery-item');
+        galleryItems.forEach(item => {
+            item.addEventListener('click', function() {
+                const imgSrc = this.querySelector('img').src;
+                const caption = this.querySelector('.gallery-caption').textContent;
+                
+                // Create lightbox
+                const lightbox = document.createElement('div');
+                lightbox.className = 'lightbox';
+                lightbox.innerHTML = `
+                    <div class="lightbox-content">
+                        <span class="close">&times;</span>
+                        <img src="${imgSrc}" alt="${caption}">
+                        <div class="lightbox-caption">${caption}</div>
+                    </div>
+                `;
+                
+                document.body.appendChild(lightbox);
+                
+                // Close lightbox
+                lightbox.querySelector('.close').onclick = () => lightbox.remove();
+                lightbox.onclick = (e) => {
+                    if (e.target === lightbox) lightbox.remove();
+                };
+            });
+        });
+    });
+    </script>
 </body>
 </html>
